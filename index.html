@@ -1,42 +1,72 @@
 <html>
 <head>
+   <!-- <script data-main="scripts/app" src="scripts/require.js"></script> -->
    <script src="https://unpkg.com/realm-web@1.2.0/dist/bundle.iife.js"></script>
    <script>
 
       const app = new Realm.App({ id: "validator-react-web-0-zefce" });
- 
-      // Create an anonymous credential
-      const credentials = Realm.Credentials.anonymous();
-      
+
       async function authenticateUser(credentials) {
           try {
               // Authenticate the user
               user = await app.logIn(credentials);
               // `App.currentUser` updates to match the logged in user
-              assert(user.id === app.currentUser.id)
+              if (user.id === app.currentUser.id) {
+                 console.log(`user.id is ${user.id}`);
+              }
               return user
           } catch(err) {
               console.error("Failed to log in", err);
           }
       }
 
+      // Create an anonymous credential
       const credentials = Realm.Credentials.anonymous();
       var user = authenticateUser(credentials)
 
-      const summed = await user.functions.sum(2,3);
-      assert(summed === 5);
+      // const summed = await user.functions.sum(2,3);
+      // assert(summed === 5);
 
       const mongodb = app.currentUser.mongoClient("mongodb-atlas");
-      const plants = mongodb.db("dermaviz-test").collection("dermaviz-test-collection");
- 
-      const result = await plants.findOne({ subjectID: "C" });
-      console.log("result", result);
+      const dermaviz_test_collection = mongodb.db("dermaviz-test").collection("dermaviz-test-collection");
 
-   </script>
+      async function queryCollection(collection) {
+            var result = await collection.findOne({ subjectID: "C" });
+            console.log("result", result);
+            return result;
+      }
+
+      function displayUser() {      
+          var myResult = queryCollection(dermaviz_test_collection);
+          // "Consuming Code" (Must wait for a fulfilled Promise)
+          myResult.then(
+               function(value) { 
+                       var displayElem = document.getElementById('user');
+                       displayElem.innerHTML = `subjectID: ${value.subjectID}`;
+               },
+               function(error) {
+                       console.log("Unfullfilled promise from queryCollection"); 
+               }
+          );
+      }
+
+</script>
+
+<script>
+function changeColor(newColor) {
+  var elem = document.getElementById('para');
+  elem.style.color = newColor;
+}
+</script>
 
 </head>
-<body>
+<body onload="displayUser();">
    <h3>Hello MongoRealmTrials</h3>
-   <div>{summed}</div>
+   <p id="para">Some text here</p>
+   <button onclick="changeColor('blue');">blue</button>
+   <button onclick="changeColor('red');">red</button>
+
+   <p id="user">No User Yet</p>
+
 </body>
 </html>
