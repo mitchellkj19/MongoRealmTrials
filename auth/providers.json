@@ -8,5 +8,17 @@
         "name": "api-key",
         "type": "api-key",
         "disabled": true
+    },
+    "local-userpass": {
+        "name": "local-userpass",
+        "type": "local-userpass",
+        "config": {
+            "confirmEmailSubject": "Confirm Veytel Validator Identity",
+            "emailConfirmationUrl": "https://127.0.0.1/confirmEmail",
+            "resetPasswordSubject": "Reset Veytel Validator Password",
+            "resetPasswordUrl": "https://127.0.0.1/resetPassword",
+            "runResetFunction": false
+        },
+        "disabled": false
     }
 }
