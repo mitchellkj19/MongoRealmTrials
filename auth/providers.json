@@ -20,5 +20,17 @@
             "runResetFunction": false
         },
         "disabled": false
+    },
+    "oauth2-google": {
+        "name": "oauth2-google",
+        "type": "oauth2-google",
+        "config": {
+            "clientId": "validator-react-web-0",
+            "openId": true
+        },
+        "secret_config": {
+            "clientSecret": "veytel_secret_key"
+        },
+        "disabled": false
     }
 }
