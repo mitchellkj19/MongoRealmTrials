@@ -1,0 +1,24 @@
+{
+    "collection": "images",
+    "database": "validator-pulmoviz",
+    "roles": [
+        {
+            "name": "pulmovizAdmin",
+            "apply_when": {},
+            "write": true,
+            "insert": true,
+            "delete": true,
+            "search": true,
+            "additional_fields": {}
+        },
+        {
+            "name": "pulmovizExpert",
+            "apply_when": {},
+            "read": true,
+            "insert": false,
+            "delete": false,
+            "search": true,
+            "additional_fields": {}
+        }
+    ]
+}
