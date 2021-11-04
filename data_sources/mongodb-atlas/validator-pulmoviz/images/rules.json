@@ -3,15 +3,6 @@
     "database": "validator-pulmoviz",
     "roles": [
         {
-            "name": "default",
-            "apply_when": {},
-            "write": true,
-            "insert": true,
-            "delete": true,
-            "search": true,
-            "additional_fields": {}
-        },
-        {
             "name": "pulmovizAdmin",
             "apply_when": {},
             "write": true,
