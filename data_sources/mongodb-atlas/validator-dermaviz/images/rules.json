@@ -1,0 +1,22 @@
+{
+    "collection": "images",
+    "database": "validator-dermaviz",
+    "roles": [
+        {
+            "name": "dermavizAdmin",
+            "apply_when": {},
+            "insert": true,
+            "delete": true,
+            "search": true,
+            "additional_fields": {}
+        },
+        {
+            "name": "dermavizUser",
+            "apply_when": {},
+            "insert": true,
+            "delete": true,
+            "search": true,
+            "additional_fields": {}
+        }
+    ]
+}
