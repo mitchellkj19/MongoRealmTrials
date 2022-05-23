@@ -12,11 +12,11 @@
             "additional_fields": {}
         },
         {
-            "name": "dermavizUser",
+            "name": "dermavizExpert",
             "apply_when": {},
             "write": true,
-            "insert": true,
-            "delete": true,
+            "insert": false,
+            "delete": false,
             "search": true,
             "additional_fields": {}
         }
