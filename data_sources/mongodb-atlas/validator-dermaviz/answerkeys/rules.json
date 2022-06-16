@@ -1,0 +1,24 @@
+{
+    "collection": "answerkeys",
+    "database": "validator-dermaviz",
+    "roles": [
+        {
+            "name": "dermavizAdmin",
+            "apply_when": {},
+            "write": true,
+            "insert": true,
+            "delete": true,
+            "search": true,
+            "additional_fields": {}
+        },
+        {
+            "name": "dermavizUser",
+            "apply_when": {},
+            "write": true,
+            "insert": true,
+            "delete": true,
+            "search": true,
+            "additional_fields": {}
+        }
+    ]
+}
